@@ -21,4 +21,9 @@ import pdf.views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", pdf.views.home, name="home"),
+    path("formulaire", pdf.views.formulaire, name="formulaire"),
+    path("verification",  pdf.views.verification, name="verification"),
+    path("<int:id>", pdf.views.generer, name="generer"),
+    path("download", pdf.views.download, name="download"),
+    path("retour", pdf.views.retour, name="retour"),
 ]
