@@ -8,10 +8,11 @@ class Profile(models.Model):
     competence = models.CharField(max_length=1000)
     langue = models.CharField(max_length=500)
     interet = models.CharField(max_length=500)
-    objectif = models.TextField()
+    titre = models.CharField(max_length=200)
     experience = models.TextField()
     education = models.TextField()
     projet = models.TextField()
+    photo = models.ImageField(upload_to="photos", blank=True, null=True)
     date_added = models.DateTimeField(auto_now=True)
 
 

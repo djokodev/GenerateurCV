@@ -17,11 +17,10 @@ def formulaire(request):
         competence = request.POST.get('competence')
         langue = request.POST.get('langue')
         interet = request.POST.get('interet')
-        objectif = request.POST.get('objectif')
+        titre = request.POST.get('titre')
         experience = request.POST.get('experience')
         education = request.POST.get('education')
-        projet = request.POST.get('projet')
-        donnees = Profile(nom=nom, email=email, phone=phone, address=address, competence=competence, experience=experience, objectif=objectif, projet=projet, interet=interet, langue=langue, education=education)
+        donnees = Profile(nom=nom, email=email, phone=phone, address=address, competence=competence, experience=experience, titre=titre, interet=interet, langue=langue, education=education)
         donnees.save()
         return redirect('verification')
     return render(request, "formulaire.html")
@@ -37,13 +36,11 @@ def verification(request):
         langue = profile.langue
         interet = profile.interet
         exp = profile.experience
-        objectif = profile.objectif
+        titre = profile.titre
         education = profile.education
-        project = profile.projet
     return render(request, "verification.html",
                   {'address': address, 'name': nom, 'email': email, 'phone': phone, 'com': com, 'interet': interet,
-                   'langue': langue, 'experience': exp, 'objectif': objectif, 'education': education,
-                   'project': project})
+                   'langue': langue, 'experience': exp, 'titre': titre, 'education': education})
 
 
 
@@ -57,14 +54,12 @@ def generer(request, id):
     langue = profile.langue
     interet = profile.interet
     exp = profile.experience
-    objectif = profile.objectif
+    titre = profile.titre
     education = profile.education
-    project = profile.projet
 
     template = get_template('generator.html')
     context = {'address': address, 'name': nom, 'email': email, 'phone': phone, 'com': com, 'interet': interet,
-                   'langue': langue, 'experience': exp, 'objectif': objectif, 'education': education,
-                   'project': project}
+                   'langue': langue, 'experience': exp, 'titre': titre, 'education': education}
     html = template.render(context)
     options = {
         'page-size':'Letter',

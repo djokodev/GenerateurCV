@@ -1,0 +1,39 @@
+
+.bouton1 a{
+    position:absolute;
+    top:60%;
+    left:50%;
+    translate: -50% -50%;
+    border:1px solid black;
+    background: #f0d683;
+    color : black;
+ }
+
+ .texth1{
+    position:absolute;
+    top:40%;
+    left:50%;
+    translate:-50% -50%;
+    font-size:100px;
+    text-shadow:0 0 0 black;
+    color:white;
+    text-shadow:11px 4px 6px #1E90FF;
+ }
+
+ .bouton1 a:hover{
+    color:black;
+    background:#2feca4;
+ }
+
+
+.form1{
+    text-align:center;
+}
+
+.formulaire{
+    background: #eefcf9;
+}
+
+.h2{
+    text-align:center;
+}
