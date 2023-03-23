@@ -11,7 +11,6 @@ class Profile(models.Model):
     titre = models.CharField(max_length=200)
     experience = models.TextField()
     education = models.TextField()
-    projet = models.TextField()
     photo = models.ImageField(upload_to="photos", blank=True, null=True)
     date_added = models.DateTimeField(auto_now=True)
 

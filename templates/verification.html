@@ -1,33 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<nav class="navbar navbar-expand-lg">
-    <h2 class="text-black">{{ name }}</h2>
-</nav>
 
-<h4 class="title"> CONTACT</h4>
-<p>{{ email }} <br> {{ phone }} <br> {{ address }}</p>
+<br>
+<h2 class="text-black">{{ name }}</h2>
+<p>{{ titre }}</p>
+<br>
+
+<h4 class="title"> FORMATION</h4>
+<p>{{ education }}</p>
+<br>
 
 <h4 class="title"> COMPETENCES</h4>
 <p>{{ com }}</p>
-
-<h4 class="title"> LANGUE</h4>
-<p>{{ langue }} </p>
-
-<h4 class="title"> INTERETS</h4>
-<p>{{ interet }} </p>
-
-<h4 class="title"> OBJECTIS</h4>
-<p>{{ objectif }} </p>
+<br>
 
 <h4 class="title"> EXPERIENCES</h4>
 <p>{{ experience }}</p>
+<br>
 
-<h4 class="title"> EDUCATIONS</h4>
-<p>{{ education }}</p>
+<h4 class="title"> LANGUE</h4>
+<p>{{ langue }} </p>
+<br>
 
-<h4 class="title"> PROJECT</h4>
-<p>{{ project }}</p>
+<h4 class="title"> INTERETS</h4>
+<p>{{ interet }} </p>
+<br>
+
+<h4 class="title"> CONTACT</h4>
+<p>{{ email }} <br> {{ phone }} <br> {{ address }}</p>
+<br>
 
 <nav class="navbar navbar-expand-lg">
     <small class="text-black">dj@koCV {% now "Y-m-d" %}</small>

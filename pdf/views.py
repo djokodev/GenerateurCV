@@ -20,7 +20,8 @@ def formulaire(request):
         titre = request.POST.get('titre')
         experience = request.POST.get('experience')
         education = request.POST.get('education')
-        donnees = Profile(nom=nom, email=email, phone=phone, address=address, competence=competence, experience=experience, titre=titre, interet=interet, langue=langue, education=education)
+        photo = request.POST.get('photo')
+        donnees = Profile(nom=nom, email=email, phone=phone, address=address, competence=competence, experience=experience, titre=titre, interet=interet, langue=langue, education=education, photo=photo)
         donnees.save()
         return redirect('verification')
     return render(request, "formulaire.html")
@@ -28,7 +29,7 @@ def formulaire(request):
 def verification(request):
     profiles = Profile.objects.all()[:1] #recupere jsute le premier element en bd
     for profile in profiles:
-        nom = profile.nom
+        nom = profile.nom.upper()
         phone = profile.phone
         email = profile.email
         address = profile.address
@@ -36,17 +37,18 @@ def verification(request):
         langue = profile.langue
         interet = profile.interet
         exp = profile.experience
-        titre = profile.titre
+        titre = profile.titre.upper()
         education = profile.education
+        photo = profile.photo
     return render(request, "verification.html",
                   {'address': address, 'name': nom, 'email': email, 'phone': phone, 'com': com, 'interet': interet,
-                   'langue': langue, 'experience': exp, 'titre': titre, 'education': education})
+                   'langue': langue, 'experience': exp, 'titre': titre, 'education': education, 'photo': photo})
 
 
 
 def generer(request, id):
     profile = Profile.objects.get(pk=id)
-    nom = profile.nom
+    nom = profile.nom.upper()
     phone = profile.phone
     email = profile.email
     address = profile.address
@@ -54,12 +56,13 @@ def generer(request, id):
     langue = profile.langue
     interet = profile.interet
     exp = profile.experience
-    titre = profile.titre
+    titre = profile.titre.upper()
     education = profile.education
+    photo = profile.photo
 
     template = get_template('generator.html')
     context = {'address': address, 'name': nom, 'email': email, 'phone': phone, 'com': com, 'interet': interet,
-                   'langue': langue, 'experience': exp, 'titre': titre, 'education': education}
+                   'langue': langue, 'experience': exp, 'titre': titre, 'education': education, 'photo': photo}
     html = template.render(context)
     options = {
         'page-size':'Letter',
