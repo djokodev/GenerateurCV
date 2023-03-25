@@ -76,6 +76,3 @@ def generer(request, id):
 def download(request):
     profile = Profile.objects.all()[:1]
     return render(request, 'download.html', {'profile':profile})
-
-def retour(request):
-    return redirect('formulaire')
