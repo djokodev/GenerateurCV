@@ -20,7 +20,6 @@ def formulaire(request):
         titre = request.POST.get('titre')
         experience = request.POST.get('experience')
         education = request.POST.get('education')
-        photo = request.POST.get('photo')
         donnees = Profile(nom=nom, email=email, phone=phone, address=address, competence=competence, experience=experience, titre=titre, interet=interet, langue=langue, education=education, photo=photo)
         donnees.save()
         return redirect('verification')
